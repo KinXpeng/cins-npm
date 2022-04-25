@@ -1,0 +1,29 @@
+{
+  "name": "cins_npm",
+  "version": "0.1.0",
+  "description": "前端常用js方法",
+  "main": "dist/cins.umd.js",
+  "module": "dist/cins.esm.js",
+  "scripts": {
+    "build": "tsc && rollup -c rollup.config.js"
+  },
+  "keywords": [
+    "cins"
+  ],
+  "author": "kinxpeng@163.com",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "cins"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KinXpeng/cins_npm"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.3"
+  }
+}
