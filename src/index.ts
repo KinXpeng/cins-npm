@@ -5,11 +5,4 @@ import { token } from './utils/token'; // token设置
 import { getLocation } from './utils/location'; // 位置
 import { uploadFile } from './utils/upload'; //  上传文件
 
-export { 
-  cins, 
-  cookie,
-  regex,
-  token,
-  getLocation,
-  uploadFile,
-};
+export { cins, cookie, regex, token, getLocation, uploadFile };

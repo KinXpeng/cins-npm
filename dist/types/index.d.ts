@@ -4,4 +4,4 @@ import { cookie } from './utils/cookie';
 import { token } from './utils/token';
 import { getLocation } from './utils/location';
 import { uploadFile } from './utils/upload';
-export { cins, cookie, regex, token, getLocation, uploadFile, };
+export { cins, cookie, regex, token, getLocation, uploadFile };

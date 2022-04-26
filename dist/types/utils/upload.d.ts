@@ -1,1 +1,1 @@
-export declare const uploadFile: (type: string, acceptType: string) => Promise<unknown>;
+export declare const uploadFile: (type?: string | undefined, acceptType?: string | undefined) => Promise<unknown>;

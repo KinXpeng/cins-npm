@@ -8,7 +8,7 @@
 interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
-export const uploadFile = (type:string, acceptType:string) => {
+export const uploadFile = (type?:string, acceptType?:string) => {
   return new Promise((resolve) => {
     const input = document.createElement('input'); // 创建input
     input.type = 'file';
