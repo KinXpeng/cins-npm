@@ -131,7 +131,7 @@ function isInteger(str: string): boolean {
  * @returns
  */
 function isNonNegativeInteger(str: string): boolean {
-  const pattern = /^\\d+$/;
+  const pattern = /^\d+$/;
   return pattern.test(str);
 }
 
