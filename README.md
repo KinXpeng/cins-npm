@@ -105,7 +105,15 @@ uploadFile('normal','image/*').then((res)=>{
 
 - 十六进制颜色：`isHexColor`
 
-- ...
+- 整数：`isInteger`
+
+- 非负整数(正整数+0)：`isNonNegativeInteger`
+
+- 正整数：`isPositiveInteger`
+
+- 正浮点数：`isFPNumber`
+
+- 非负浮点数(正浮点数+0)：`isNonNegFloatNumber`
 
   
 
@@ -131,6 +139,13 @@ uploadFile('normal','image/*').then((res)=>{
   ```js
   // node为承载二维码信息的dom节点，info为二维码信息
   cins.qrCode(node,info);
+  ```
+
+- 判断某天是否为工作日：`cins.isWeekday`
+
+  ```js
+  const result = cins.isWeekday('2022-07-08');
+  console.log(result); // true
   ```
 
   

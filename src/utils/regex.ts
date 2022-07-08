@@ -9,11 +9,7 @@
  * @param str
  * @returns
  */
- function isVehicleNumber(str:string):boolean{
-  // 传统燃油
-
-  // 新能源
-
+function isVehicleNumber(str: string): boolean {
   const pattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-Z]{1}(([A-HJK]{1}[A-HJ-NP-Z0-9]{1}[0-9]{4})|([0-9]{5}[A-HJK]{1})|(?=(.*[A-HJ-NP-Z]){0,2})(?=(.*[0-9]){3,5})[A-HJ-NP-Z0-9]{5})$/;
   return pattern.test(str);
 }
@@ -23,7 +19,7 @@
  * @param str
  * @returns
  */
-function isTrailerNumber(str:string):boolean {
+function isTrailerNumber(str: string): boolean {
   const pattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领]{1}[A-Z]{1}[A-Z0-9]{4}[挂]{1}$/;
   return pattern.test(str);
 }
@@ -39,7 +35,7 @@ function isTrailerNumber(str:string):boolean {
  * 18+任意数
  * 198,199
  */
-function isMobilePhone(str:string):boolean{
+function isMobilePhone(str: string): boolean {
   const pattern = /^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))[0-9]{8}$/;
   return pattern.test(str);
 }
@@ -48,7 +44,7 @@ function isMobilePhone(str:string):boolean{
  * 校验证件号
  * @returns
  */
-function isIDNumber(str:string):boolean {
+function isIDNumber(str: string): boolean {
   //15位数身份证正则表达式
   const arg1 = /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;
   //18位数身份证正则表达式
@@ -84,7 +80,7 @@ function isIDNumber(str:string):boolean {
  * @param str
  * @returns
  */
-function isEmail(str:string):boolean {
+function isEmail(str: string): boolean {
   const pattern = /^[A-Za-z0-9._%-]+@([A-Za-z0-9-]+.)+[A-Za-z]{2,4}$/;
   return pattern.test(str);
 }
@@ -94,7 +90,7 @@ function isEmail(str:string):boolean {
  * @param str
  * @returns
  */
-function isValidAccount(str:string):boolean {
+function isValidAccount(str: string): boolean {
   const pattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/;
   return pattern.test(str);
 }
@@ -104,7 +100,7 @@ function isValidAccount(str:string):boolean {
  * @param str
  * @returns
  */
-function isStrongPassword(str:string):boolean {
+function isStrongPassword(str: string): boolean {
   const pattern = /^(?=.d)(?=.[a-z])(?=.*[A-Z]).{8,16}$/;
   return pattern.test(str);
 }
@@ -114,8 +110,58 @@ function isStrongPassword(str:string):boolean {
  * @param str
  * @returns
  */
-function isHexColor(str:string):boolean{
+function isHexColor(str: string): boolean {
   const pattern = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
+  return pattern.test(str);
+}
+
+/**
+ * 校验是否为整数
+ * @param str
+ * @returns
+ */
+function isInteger(str: string): boolean {
+  const pattern = /^-?\\d+$/;
+  return pattern.test(str);
+}
+
+/**
+ * 校验是否为非负整数(正整数+0)
+ * @param str
+ * @returns
+ */
+function isNonNegativeInteger(str: string): boolean {
+  const pattern = /^\\d+$/;
+  return pattern.test(str);
+}
+
+/**
+ * 校验是否为正整数
+ * @param str
+ * @returns
+ */
+function isPositiveInteger(str: string): boolean {
+  const pattern = /^[0-9]*[1-9][0-9]*$/;
+  return pattern.test(str);
+}
+
+/**
+ * 校验是否为正浮点数
+ * @param str
+ * @returns
+ */
+function isFPNumber(str: string): boolean {
+  const pattern = /^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+  return pattern.test(str);
+}
+
+/**
+ * 校验是否为非负浮点数(正浮点数+0)
+ * @param str
+ * @returns
+ */
+function isNonNegFloatNumber(str: string): boolean {
+  const pattern = /^\\d+(\\.\\d+)?$/;
   return pattern.test(str);
 }
 
@@ -128,4 +174,9 @@ export const regex = {
   isValidAccount,
   isStrongPassword,
   isHexColor,
+  isInteger,
+  isNonNegativeInteger,
+  isPositiveInteger,
+  isFPNumber,
+  isNonNegFloatNumber,
 };

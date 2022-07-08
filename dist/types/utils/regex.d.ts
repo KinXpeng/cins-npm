@@ -55,6 +55,36 @@ declare function isStrongPassword(str: string): boolean;
  * @returns
  */
 declare function isHexColor(str: string): boolean;
+/**
+ * 校验是否为整数
+ * @param str
+ * @returns
+ */
+declare function isInteger(str: string): boolean;
+/**
+ * 校验是否为非负整数(正整数+0)
+ * @param str
+ * @returns
+ */
+declare function isNonNegativeInteger(str: string): boolean;
+/**
+ * 校验是否为正整数
+ * @param str
+ * @returns
+ */
+declare function isPositiveInteger(str: string): boolean;
+/**
+ * 校验是否为正浮点数
+ * @param str
+ * @returns
+ */
+declare function isFPNumber(str: string): boolean;
+/**
+ * 校验是否为非负浮点数(正浮点数+0)
+ * @param str
+ * @returns
+ */
+declare function isNonNegFloatNumber(str: string): boolean;
 export declare const regex: {
     isVehicleNumber: typeof isVehicleNumber;
     isTrailerNumber: typeof isTrailerNumber;
@@ -64,5 +94,10 @@ export declare const regex: {
     isValidAccount: typeof isValidAccount;
     isStrongPassword: typeof isStrongPassword;
     isHexColor: typeof isHexColor;
+    isInteger: typeof isInteger;
+    isNonNegativeInteger: typeof isNonNegativeInteger;
+    isPositiveInteger: typeof isPositiveInteger;
+    isFPNumber: typeof isFPNumber;
+    isNonNegFloatNumber: typeof isNonNegFloatNumber;
 };
 export {};
