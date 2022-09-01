@@ -1,4 +1,4 @@
-import { cins } from './utils/cins'; // cins常用方法
+import * as cins from './utils/cins'; // cins常用方法
 import { regex } from './utils/regex'; // 常用正则
 import { cookie } from './utils/cookie'; // cookie设置
 import { token } from './utils/token'; // token设置

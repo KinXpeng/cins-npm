@@ -1,4 +1,4 @@
-import { cins } from './utils/cins';
+import * as cins from './utils/cins';
 import { regex } from './utils/regex';
 import { cookie } from './utils/cookie';
 import { token } from './utils/token';

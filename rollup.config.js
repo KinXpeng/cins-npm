@@ -11,7 +11,7 @@ export default {
     {
       file: 'dist/cins.umd.js', // script标签引入
       format: 'umd',
-      name: 'Cins',
+      name: 'cins',
     },
   ],
   plugins: [typescript(), terser()],
