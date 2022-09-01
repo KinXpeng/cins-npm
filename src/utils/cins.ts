@@ -4,7 +4,9 @@
  * @return value 参数值
  * */
 export const urlParams = (name: string): string | null => {
-  let obj = new URLSearchParams(location.search);
+  const url = window.location.href;
+  const search = url && url.split('?')[1];
+  const obj = new URLSearchParams(search);
   if (obj.get(name)) {
     return obj.get(name);
   } else {
@@ -36,11 +38,11 @@ export const dateOfDays = (days?: number): string => {
 
 /**
  * 判断某天是否是工作日
- * @param date 日期
+ * @param date 日期 '2022-09-01'
  * @return boolean
  * */
-export const isWeekday = (date: any): boolean => {
-  return date.getDay() % 6 !== 0;
+export const isWeekday = (date: string): boolean => {
+  return new Date(date).getDay() % 6 !== 0;
 };
 
 /**
@@ -136,7 +138,6 @@ export const turnCase = (str: string, type: number) => {
     case 2:
       return str.toLowerCase();
     case 3:
-      //return str[0].toUpperCase() + str.substr(1).toLowerCase() // substr 已不推荐使用
       return str[0].toUpperCase() + str.substring(1).toLowerCase();
     default:
       return str;
@@ -148,9 +149,11 @@ export const turnCase = (str: string, type: number) => {
  * @return Object
  * */
 export const getSearchParams = () => {
-  const searchPar: any = new URLSearchParams(window.location.search);
+  const url = window.location.href;
+  const search = url && url.split('?')[1];
+  const searchParams: any = new URLSearchParams(search);
   const paramsObj: any = {};
-  for (const [key, value] of searchPar.entries()) {
+  for (const [key, value] of searchParams.entries()) {
     paramsObj[key] = value;
   }
   return paramsObj;
@@ -158,7 +161,7 @@ export const getSearchParams = () => {
 
 /**
  * 判断手机是Andoird还是IOS
- * @return type * 1: ios 2: android 3: 其它
+ * @return type
  * */
 export const getOSType = (): string => {
   let u = navigator.userAgent;

@@ -11,10 +11,10 @@ export declare const urlParams: (name: string) => string | null;
 export declare const dateOfDays: (days?: number | undefined) => string;
 /**
  * 判断某天是否是工作日
- * @param date 日期
+ * @param date 日期 '2022-09-01'
  * @return boolean
  * */
-export declare const isWeekday: (date: any) => boolean;
+export declare const isWeekday: (date: string) => boolean;
 /**
  * 校验数据类型
  * @param obj 数据
@@ -64,7 +64,7 @@ export declare const turnCase: (str: string, type: number) => string;
 export declare const getSearchParams: () => any;
 /**
  * 判断手机是Andoird还是IOS
- * @return type * 1: ios 2: android 3: 其它
+ * @return type
  * */
 export declare const getOSType: () => string;
 /**

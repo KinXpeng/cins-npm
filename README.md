@@ -131,18 +131,172 @@ uploadFile('normal', 'image/*').then((res) => {
   console.log(result); // 2022-04-25
   ```
 
-- 生成二维码（暂停使用）
-
-  ```js
-  // node为承载二维码信息的dom节点，info为二维码信息
-  cins.qrCode(node, info);
-  ```
-
 - 判断某天是否为工作日：`cins.isWeekday`
 
   ```js
   const result = cins.isWeekday('2022-07-08');
   console.log(result); // true
+  ```
+
+- 校验数据类型：`cins.typeOf`
+
+  ```js
+  const result = cins.typeOf([]);
+  console.log(result); // array
+  ```
+
+- 防抖：`cins.debounce`
+
+  ```js
+  cins.debounce(fn,500); // fn为需要执行防抖的函数
+  ```
+
+- 节流：`cins.throttle`
+
+  ```js
+  cins.debounce(fn,500); // fn为需要执行节流的函数
+  ```
+
+- 手机号脱敏：`cins.hideMobile`
+
+  ```js
+  /**
+   * @param mobile 手机号
+   * @return mobile 已脱敏的手机号
+   * */
+  const result = cins.hideMobile(13122223333);
+  console.log(result); // 131****3333
+  ```
+
+- 开启全屏：`cins.typeOf`
+
+  ```js
+  /**
+   * @param element 开启全屏的dom
+   * */
+  let dom = this.$refs.dom;
+  cins.launchFullscreen(dom);
+  ```
+
+- 关闭全屏：`cins.exitFullscreen`
+
+  ```js
+  cins.exitFullscreen();
+  ```
+
+- 大小写转换：`cins.turnCase`
+
+  ```js
+  /**
+   * @param str 待转换的字符串
+   * @param type 1-全大写 2-全小写 3-首字母大写
+   * @return str
+   * */
+  const result = cins.turnCase('AssfafSDss',1);
+  console.log(result); // ASSFAFSDSS
+  ```
+
+- 解析URL参数：`cins.getSearchParams`
+
+  ```js
+  /**
+   * @return Object
+   * */
+  // localhost:80?id=1&name=2
+  const result = cins.getSearchParams();
+  console.log(result); // {id:'1',name:'2'}
+  ```
+
+- 判断手机是Andoird还是IOS：`cins.getOSType`
+
+  ```js
+  const result = cins.getOSType();
+  console.log(result); // ios/android/other
+  ```
+
+- 数组对象根据字段去重：`cins.uniqueArrayObject`
+
+  ```js
+  /**
+   * @param arr 要去重的数组
+   * @param key 根据去重的字段名
+   * @return arr
+   * */
+  const responseList = [
+      { id: 1, name: '树哥' },
+      { id: 2, name: '黄老爷' },
+      { id: 3, name: '张麻子' },
+      { id: 1, name: '黄老爷' },
+      { id: 2, name: '张麻子' },
+      { id: 3, name: '树哥' },
+      { id: 1, name: '树哥' },
+      { id: 2, name: '黄老爷' },
+      { id: 3, name: '张麻子' },
+  ]
+  
+  const result = cins.uniqueArrayObject(responseList, 'id')
+  console.log(result); // [{ id: 1, name: '树哥' },{ id: 2, name: '黄老爷' },{ id: 3, name: '张麻子' }]
+  ```
+
+- 滚动到页面顶部：`cins.scrollToTop`
+
+  ```js
+  cins.scrollToTop();
+  ```
+
+- 滚动到元素位置：`cins.smoothScroll`
+
+  ```js
+  /**
+   * @param element 元素dom
+   * */
+  cins.hideMobile(dom);
+  ```
+
+- 生成uuid：`cins.uuid`
+
+  ```js
+  const result = cins.uuid();
+  console.log(result); // e350sf34-651f-5c68-fg47-e3451f9bdfsc
+  ```
+
+- 模糊搜索：`cins.fuzzyQuery`
+
+  ```js
+  /**
+   * @param list 原数组
+   * @param keyWord 查询的关键词
+   * @param attribute 数组需要检索属性
+   * @return arr
+   * */
+  const list = [
+    { id: 1, name: '树哥' },
+    { id: 2, name: '黄老爷' },
+    { id: 3, name: '张麻子' },
+    { id: 4, name: '汤师爷' },
+    { id: 5, name: '胡万' },
+    { id: 6, name: '花姐' },
+    { id: 7, name: '小梅' }
+  ]
+  const result = cins.hideMobile(list, '树', 'name');
+  console.log(result);  // [{id: 1, name: '树哥'}]
+  ```
+
+- 遍历树节点：`cins.foreachTree`
+
+  ```js
+  /**
+   * @param data 树数据
+   * @param callback 回调函数
+   * @param childrenName 子节点数组
+   * */
+  let result
+  foreachTree(data, (item) => {
+    if (item.id === 9) {
+      result = item
+    }
+  })
+  console.log('result', result)  // {id: 9,label: "三级 1-1-1"}   
   ```
 
 #### 3.cookie 设置
