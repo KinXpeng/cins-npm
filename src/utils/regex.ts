@@ -161,7 +161,7 @@ function isFPNumber(str: string): boolean {
  * @returns
  */
 function isNonNegFloatNumber(str: string): boolean {
-  const pattern = /^\\d+(\\.\\d+)?$/;
+  const pattern = /^(\+)?\d+(\.\d+)?$/;
   return pattern.test(str);
 }
 

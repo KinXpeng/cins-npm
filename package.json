@@ -1,6 +1,6 @@
 {
   "name": "cins",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "前端常用js方法",
   "main": "dist/cins.umd.js",
   "module": "dist/cins.esm.js",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/KinXpeng/cins_npm"
+    "url": "https://github.com/KinXpeng/cins-npm"
   },
   "license": "ISC",
   "devDependencies": {
