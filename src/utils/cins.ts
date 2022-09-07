@@ -37,6 +37,21 @@ export const dateOfDays = (days?: number): string => {
 };
 
 /**
+ * @param m 月数 负数时为前m个月的当前日期
+ * @return date 几月前的日期
+ * */
+export const dateOfMonths = (m?: number): string => {
+  const date = new Date();
+  date.setMonth(date.getMonth() + Number(m));
+  let year: number = date.getFullYear();
+  let month: number = date.getMonth() + 1;
+  month = (month < 10 ? '0' + month : month) as number;
+  let day: number = date.getDate();
+  day = (day < 10 ? '0' + day : day) as number;
+  return year + '-' + month + '-' + day;
+};
+
+/**
  * 判断某天是否是工作日
  * @param date 日期 '2022-09-01'
  * @return boolean
@@ -199,7 +214,8 @@ export const uniqueArrayObject = (arr: Array<any> = [], key: string) => {
  * 滚动到页面顶部
  * */
 export const scrollToTop = () => {
-  const height: number = document.documentElement.scrollTop || document.body.scrollTop;
+  const height: number =
+    document.documentElement.scrollTop || document.body.scrollTop;
   if (height > 0) {
     window.requestAnimationFrame(scrollToTop);
     window.scrollTo(0, height - height / 8);
@@ -234,7 +250,11 @@ export const uuid = () => {
  * @param attribute 数组需要检索属性
  * @return arr
  * */
-export const fuzzyQuery = (list: Array<any>, keyWord: string, attribute: string) => {
+export const fuzzyQuery = (
+  list: Array<any>,
+  keyWord: string,
+  attribute: string,
+) => {
   const reg = new RegExp(keyWord);
   const arr = [];
   for (let i = 0; i < list.length; i++) {
@@ -251,7 +271,11 @@ export const fuzzyQuery = (list: Array<any>, keyWord: string, attribute: string)
  * @param callback 回调函数
  * @param childrenName 子节点数组
  * */
-export const foreachTree = (data: Array<any>, callback: (params: any) => void, childrenName = 'children') => {
+export const foreachTree = (
+  data: Array<any>,
+  callback: (params: any) => void,
+  childrenName = 'children',
+) => {
   for (let i = 0; i < data.length; i++) {
     callback(data[i]);
     if (data[i][childrenName] && data[i][childrenName].length > 0) {
