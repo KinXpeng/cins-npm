@@ -40,12 +40,12 @@ export const uploadFile = (type?: string, acceptType?: string) => {
 */
 export const upload = (type: string, flag: boolean, size: number) => {
   return new Promise((resolve, reject) => {
-    const input: any = document.createElement('input');
+    const input: HTMLInputElement = document.createElement('input');
     input.type = 'file';
-    if (flag) input.multiple = 'multiple';
+    if (flag) input.multiple = true;
     input.accept = type;
-    input.onchange = (e: any) => {
-      const files = e.target.files;
+    input.onchange = ({ target }) => {
+      const files = (target as EventTarget & { files: FileList }).files;
       let overSize = true; // 默认不超出
       if (size) {
         // 限制大小
