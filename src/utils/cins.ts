@@ -52,6 +52,23 @@ export const dateOfMonths = (m?: number): string => {
 };
 
 /**
+ * 根据日期返回星期几（不传日期返回当天的星期）
+ * @param {String} date
+ * @param {String} week
+ * @returns
+ * 调用示例
+ * dateToWeek('2022-09-20')
+   // 二
+   dateToWeek()
+   // 三
+ */
+export const dateToWeek = (date: string): string => {
+  let weeks = ['日', '一', '二', '三', '四', '五', '六'];
+  let day = (date ? new Date(date) : new Date()).getDay();
+  return weeks[day];
+};
+
+/**
  * 判断某天是否是工作日
  * @param date 日期 '2022-09-01'
  * @return boolean
